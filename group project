@@ -1,11 +1,50 @@
 class RestaurantReservation:
+    """
+    A class to manage restaurant reservations.
+
+    Attributes:
+        reservations (dict): A dictionary to store reservation details with the customer's name as key.
+
+    Methods:
+        make_reservation(name, time, date): Adds a new reservation.
+        change_reservation(name, new_time, new_date): Updates an existing reservation.
+        get_reservation(name): Retrieves a specific reservation by customer name.
+        cancel_reservation(name): Removes an existing reservation by customer name.
+    """
+
     def __init__(self):
+        """Initializes the RestaurantReservation with an empty dictionary for reservations."""
         self.reservations = {}
 
     def make_reservation(self, name, time, date):
+        """
+        Adds a reservation for a specified customer.
+
+        Args:
+            name (str): The name of the customer making a reservation.
+            time (str): The time of the reservation.
+            date (str): The date of the reservation.
+
+        Returns:
+            None
+        """
         self.reservations[name] = {'time': time, 'date': date}
 
     def change_reservation(self, name, new_time, new_date):
+        """
+        Updates the reservation details for an existing reservation.
+
+        Args:
+            name (str): The name of the customer whose reservation is to be changed.
+            new_time (str): The new time for the reservation.
+            new_date (str): The new date for the reservation.
+
+        Returns:
+            None
+
+        Prints:
+            A message indicating whether the reservation was found and updated, or not found.
+        """
         if name in self.reservations:
             self.reservations[name]['time'] = new_time
             self.reservations[name]['date'] = new_date
@@ -13,6 +52,18 @@ class RestaurantReservation:
             print(f"Reservation '{name}' not found.")
 
     def get_reservation(self, name):
+        """
+        Retrieves the reservation details for a specific customer.
+
+        Args:
+            name (str): The name of the customer whose reservation details are to be retrieved.
+
+        Returns:
+            dict: A dictionary containing the reservation details if found, otherwise None.
+
+        Prints:
+            A message indicating whether the reservation was found or not.
+        """
         if name in self.reservations:
             return self.reservations[name]
         else:
@@ -20,6 +71,18 @@ class RestaurantReservation:
             return None
 
     def cancel_reservation(self, name):
+        """
+        Cancels an existing reservation for a specified customer.
+
+        Args:
+            name (str): The name of the customer whose reservation is to be canceled.
+
+        Returns:
+            None
+
+        Prints:
+            A message indicating whether the reservation was successfully canceled or not found.
+        """
         if name in self.reservations:
             del self.reservations[name]
             print(f"Reservation '{name}' has been canceled.")
