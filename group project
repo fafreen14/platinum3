@@ -1,1 +1,27 @@
+class RestaurantReservation:
+    def __init__(self):
+        self.reservations = {}
 
+    def make_reservation(self, name, time, date):
+        self.reservations[name] = {'time': time, 'date': date}
+
+    def change_reservation(self, name, new_time, new_date):
+        if name in self.reservations:
+            self.reservations[name]['time'] = new_time
+            self.reservations[name]['date'] = new_date
+        else:
+            print(f"Reservation '{name}' not found.")
+
+    def get_reservation(self, name):
+        if name in self.reservations:
+            return self.reservations[name]
+        else:
+            print(f"Reservation '{name}' not found.")
+            return None
+
+    def cancel_reservation(self, name):
+        if name in self.reservations:
+            del self.reservations[name]
+            print(f"Reservation '{name}' has been canceled.")
+        else:
+            print(f"Reservation '{name}' not found.")
