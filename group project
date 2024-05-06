@@ -88,3 +88,37 @@ class RestaurantReservation:
             print(f"Reservation '{name}' has been canceled.")
         else:
             print(f"Reservation '{name}' not found.")
+
+#Main interaction loop
+resturant = ResturantReservation()
+while True:
+    print("\nOptions:")
+    print("1. Make a reservation")
+    print("2. Change a reservation")
+    print("3. View a reservation")
+    print("4. Cancel a reservation")
+    print("5. Exit")
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        name = input("Enter the customer's name: ")
+        time = input("Enter the time of the reservation (HH:MM): ")
+        date = input("Enter the date of the reservation (YYYY-MM-DD): ")
+        resturant.make_reservation(name, time, date)
+   elif choice == "2":
+        name = input("Enter the customer's name whose reservation is to be changed: ")
+        new_time = input("Enter the new time of the reservation (HH:MM): ")
+        new_date = input("Enter the new date of the reservation (YYYY-MM-DD): ")
+        resturant.change_reservation(name, new_time, new_date)
+  elif choice == "3": 
+        name = input("Enter the customer's name to view the reservation: ")
+        resturant.get_reservation(name)
+  elif choice == "4":
+        name = input("Enter the customer's name to cancelthe reservation: ")
+        resturant.cancel_reservation(name)
+  elif choice == "5":
+        print("Exiting...")
+        break
+  else: 
+        print("Invalid option. Please try again.")
+   
