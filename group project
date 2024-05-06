@@ -29,6 +29,7 @@ class RestaurantReservation:
             None
         """
         self.reservations[name] = {'time': time, 'date': date}
+        print(f"Reservation for{name} on {date} at {time}.")
 
     def change_reservation(self, name, new_time, new_date):
         """
@@ -65,10 +66,12 @@ class RestaurantReservation:
             A message indicating whether the reservation was found or not.
         """
         if name in self.reservations:
+            reservations = self.reservations[name]
             return self.reservations[name]
+            print(f"Reservations for {name}: {reservation['date']} at {reservation['time']}")
         else:
             print(f"Reservation '{name}' not found.")
-            return None
+            
 
     def cancel_reservation(self, name):
         """
