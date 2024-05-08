@@ -21,5 +21,4 @@ This project implements a simple reservation system for a restaurant. It allows 
 ## Usage
 To use the program, run the main script and follow the on-screen prompts to interact with the reservation system. Choose from making a reservation, changing an existing one, viewing details of a reservation, canceling a reservation, or exiting the program.
 
-## License
-This project is open-sourced under the MIT license.
+
