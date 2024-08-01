@@ -125,4 +125,11 @@ while True:
         break
   else: 
         print("Invalid option. Please try again.")
+
+def say_goodbye():
+    print("Goodbye")
+
+# Call the function
+say_goodbye()
+
    
